@@ -56,9 +56,10 @@ def transform_weather_data(task_instance):
 
     now = datetime.now()
     dt_string = now.strftime("-%Y-%m-%d-%H:%M:%S")
+    aws_credentials = {"key": "xxxxxxxxx", "secret": "xxxxxxxxxx", "token": "xxxxxxxxxxxxxx"}
 
     CSV_NAME = CSV_NAME + dt_string
-    forecast_df.to_csv(f's3://{S3_BUCKET_NAME}/{CSV_NAME}.csv')
+    forecast_df.to_csv(f's3://{S3_BUCKET_NAME}/{CSV_NAME}.csv', index=False, storage_options=aws_credentials)
 
 with DAG('weather_dag', default_args=default_args, schedule_interval='@daily', catchup=False) as dag:
 
