@@ -54,7 +54,7 @@ You will see your Airflow credentials in the terminal where you ran `airflow sta
 2. Create a new folder called exactly *dags* else you have to change the airflow.cfg file
 3. Put the code inside this *dags* folder
 
-### ## Running the Pipeline
+### Running the Pipeline
 
 1. Trigger the `weather_data_pipeline` DAG (weather_dag).
 
